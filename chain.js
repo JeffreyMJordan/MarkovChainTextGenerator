@@ -53,8 +53,17 @@ const step = (chain, gram) => {
   }
   gramContainer.innerHTML = gram;
   let arr = chain[gram];
+  
   keyMapContainer.innerHTML = `[${arr}]`;
-  let nextGram = arr[Math.floor(Math.random() * arr.length)];
+  let nextGram = gram;
+  if (arr){
+    nextGram = nextGram.split(" ").slice(1).join(" ");
+    nextGram += ` ${arr[Math.floor(Math.random() * arr.length)]}`;
+  }else{
+    let keys = Object.keys(chain);
+    nextGram = keys[ keys.length * Math.random() << 0];
+  }
+  
   return nextGram;
 };
 

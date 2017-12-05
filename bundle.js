@@ -127,8 +127,17 @@ var step = function step(chain, gram) {
   }
   gramContainer.innerHTML = gram;
   var arr = chain[gram];
+
   keyMapContainer.innerHTML = "[" + arr + "]";
-  var nextGram = arr[Math.floor(Math.random() * arr.length)];
+  var nextGram = gram;
+  if (arr) {
+    nextGram = nextGram.split(" ").slice(1).join(" ");
+    nextGram += " " + arr[Math.floor(Math.random() * arr.length)];
+  } else {
+    var _keys = Object.keys(chain);
+    nextGram = _keys[_keys.length * Math.random() << 0];
+  }
+
   return nextGram;
 };
 
