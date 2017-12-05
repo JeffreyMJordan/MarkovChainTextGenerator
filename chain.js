@@ -24,7 +24,6 @@ const makeChain = (corpus, n=1) => {
 
 
 const assembleText = (corpus, words=50, n=1) => {
-  console.log(n);
   let chain = makeChain(corpus, n);
   
   let sentence = "";
@@ -43,17 +42,33 @@ const assembleText = (corpus, words=50, n=1) => {
   return sentence; 
 };
 
+const step = (chain, gram) => {
+  let gramContainer = document.getElementById('gram');
+  let keyMapContainer = document.getElementById('key-map');
+  if(gram===undefined){
+    let keys = Object.keys(chain);
+    gram = keys[ keys.length * Math.random() << 0];
+    console.log('here');
+  }
+  gramContainer.innerHTML = gram;
+  keyMapContainer.innerHTML = `[${chain[gram]}]`;
+};
+
 
 window.addEventListener('DOMContentLoaded', () => {
+
+  let chain = undefined;
+  
   let form = document.getElementById('form');
+  
   form.addEventListener('submit', (e)  => {
     e.preventDefault();
     let corpus = e.target[0].value;
     let n = parseInt(e.target[1].value);
-    console.log(n);
+    
     let sentence = assembleText(corpus, 50, n);
     let textBox = document.getElementById("text-box");
-    console.log(textBox);
+    
     textBox.innerHTML = sentence;
   });
 
@@ -62,14 +77,13 @@ window.addEventListener('DOMContentLoaded', () => {
   button.addEventListener('click', (e)=>{
     e.preventDefault();
     let corpus = document.getElementById('form')[0].value;
-    console.log(corpus);
+    let n = parseInt(document.getElementById('form')[1].value);
+    if(chain===undefined){
+      chain = makeChain(corpus, n);
+    }
+    let gram = document.getElementById('gram').value;
+    console.log(document.getElementById('gram').innerText);
+    
+    step(chain, gram);
   });
 });
-
-
-// form.addEventListener('submit', () => {
-//   console.log("here");
-// });
-
-// export default makeChain;
-

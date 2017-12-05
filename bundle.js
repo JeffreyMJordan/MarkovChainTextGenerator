@@ -98,7 +98,6 @@ var assembleText = function assembleText(corpus) {
   var words = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 50;
   var n = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
 
-  console.log(n);
   var chain = makeChain(corpus, n);
 
   var sentence = "";
@@ -117,16 +116,32 @@ var assembleText = function assembleText(corpus) {
   return sentence;
 };
 
+var step = function step(chain, gram) {
+  var gramContainer = document.getElementById('gram');
+  var keyMapContainer = document.getElementById('key-map');
+  if (gram === undefined) {
+    var keys = Object.keys(chain);
+    gram = keys[keys.length * Math.random() << 0];
+    console.log('here');
+  }
+  gramContainer.innerHTML = gram;
+  keyMapContainer.innerHTML = "[" + chain[gram] + "]";
+};
+
 window.addEventListener('DOMContentLoaded', function () {
+
+  var chain = undefined;
+
   var form = document.getElementById('form');
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var corpus = e.target[0].value;
     var n = parseInt(e.target[1].value);
-    console.log(n);
+
     var sentence = assembleText(corpus, 50, n);
     var textBox = document.getElementById("text-box");
-    console.log(textBox);
+
     textBox.innerHTML = sentence;
   });
 
@@ -135,15 +150,16 @@ window.addEventListener('DOMContentLoaded', function () {
   button.addEventListener('click', function (e) {
     e.preventDefault();
     var corpus = document.getElementById('form')[0].value;
-    console.log(corpus);
+    var n = parseInt(document.getElementById('form')[1].value);
+    if (chain === undefined) {
+      chain = makeChain(corpus, n);
+    }
+    var gram = document.getElementById('gram').value;
+    console.log(document.getElementById('gram').innerText);
+
+    step(chain, gram);
   });
 });
-
-// form.addEventListener('submit', () => {
-//   console.log("here");
-// });
-
-// export default makeChain;
 
 /***/ }),
 /* 1 */
