@@ -1,0 +1,20 @@
+I think I should have the chain generation happen in util, then be dispatched to the rest of the state 
+This should be the same for text generation 
+
+I could also have some step-by-step text generation 
+Not really sure how to do this...
+I could just make a really long promise chain of stuff... 
+I could have a 'chain' component, which I updated with the key and the mapped array 
+  I'm not sure how to not make this look choppy 
+  I want to emphasize that it's selecting something from the array 
+  Umm uhh 
+  could have it highlight the thing it ends up selecting, but this seems like it requires more actions
+  That might be the only way... 
+  I could have it dispatch something like a 'send-selection' to the state 
+  Then it changes the key...
+  I really need some help on this
+  Maybe this isn't even practical 
+I could also have a sentence component which I update when I add a word to the sentence 
+
+
+Use Canvas 
