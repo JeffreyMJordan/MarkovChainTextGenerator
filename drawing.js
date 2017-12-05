@@ -1,7 +1,7 @@
-
-
-export const drawRect = (canvas) => {
-  canvas.fillStyle = "red"; 
-  canvas.fillRect(100,100,400,300); 
+export const drawChain = (canvas, chain) => {
+  
+  Object.keys(chain).forEach((key) => {
+    canvas
+  });
 };
 

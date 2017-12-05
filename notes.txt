@@ -18,3 +18,11 @@ I could also have a sentence component which I update when I add a word to the s
 
 
 Use Canvas 
+
+I could just have the generation be step by step 
+As in, I show the key and the array of next words
+Drawing this in canvas seems way too hard 
+TA says that 'next button' will be cool 
+What about someone who wants to put in War and Peace 
+D3 is a data vis library 
+Provides good presets for generating these kinds of visualizations 

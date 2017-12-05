@@ -1,11 +1,13 @@
-import {drawRect}from './drawing';
+import {drawChain} from './drawing';
 
 const makeChain = (corpus, n=1) => {
+  console.log(n);
   let corpusArr = corpus.split(" ");
+  console.log(corpusArr);
   let chain = {};
   for( var i = 0; i<corpusArr.length-n; i++){
     let substr = corpusArr.slice(i, n+i).join(" ");
-    let next = corpusArr[i+n];
+    let next = corpusArr[n+i];
     if (next){
       if (chain[substr]){
         chain[substr].push(next);
@@ -15,16 +17,14 @@ const makeChain = (corpus, n=1) => {
     }
       
   }
-  var canvas = document.getElementById('canvas'); 
-  var c = canvas.getContext('2d'); 
-  
-  drawRect(c);
+  console.log(chain);
   return chain;
 };
 
 
 
-const assembleText = (corpus, words = 50, n=1) => {
+const assembleText = (corpus, words=50, n=1) => {
+  console.log(n);
   let chain = makeChain(corpus, n);
   
   let sentence = "";
@@ -49,8 +49,11 @@ window.addEventListener('DOMContentLoaded', () => {
   
   form.addEventListener('submit', (e)  => {
     e.preventDefault();
+    
     let corpus = e.target[0].value;
-    let sentence = assembleText(corpus);
+    let n = parseInt(e.target[1].value);
+    console.log(n);
+    let sentence = assembleText(corpus, 50, n);
     console.log(sentence);
   });
 });

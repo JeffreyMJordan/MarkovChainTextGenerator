@@ -75,11 +75,13 @@ var _drawing = __webpack_require__(1);
 var makeChain = function makeChain(corpus) {
   var n = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
+  console.log(n);
   var corpusArr = corpus.split(" ");
+  console.log(corpusArr);
   var chain = {};
   for (var i = 0; i < corpusArr.length - n; i++) {
     var substr = corpusArr.slice(i, n + i).join(" ");
-    var next = corpusArr[i + n];
+    var next = corpusArr[n + i];
     if (next) {
       if (chain[substr]) {
         chain[substr].push(next);
@@ -88,10 +90,7 @@ var makeChain = function makeChain(corpus) {
       }
     }
   }
-  var canvas = document.getElementById('canvas');
-  var c = canvas.getContext('2d');
-
-  (0, _drawing.drawRect)(c);
+  console.log(chain);
   return chain;
 };
 
@@ -99,6 +98,7 @@ var assembleText = function assembleText(corpus) {
   var words = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 50;
   var n = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
 
+  console.log(n);
   var chain = makeChain(corpus, n);
 
   var sentence = "";
@@ -122,8 +122,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+
     var corpus = e.target[0].value;
-    var sentence = assembleText(corpus);
+    var n = parseInt(e.target[1].value);
+    console.log(n);
+    var sentence = assembleText(corpus, 50, n);
     console.log(sentence);
   });
 });
@@ -144,9 +147,11 @@ window.addEventListener('DOMContentLoaded', function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var drawRect = exports.drawRect = function drawRect(canvas) {
-  canvas.fillStyle = "red";
-  canvas.fillRect(100, 100, 400, 300);
+var drawChain = exports.drawChain = function drawChain(canvas, chain) {
+
+  Object.keys(chain).forEach(function (key) {
+    canvas;
+  });
 };
 
 /***/ })
