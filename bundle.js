@@ -119,15 +119,23 @@ var assembleText = function assembleText(corpus) {
 
 window.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('form');
-
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-
     var corpus = e.target[0].value;
     var n = parseInt(e.target[1].value);
     console.log(n);
     var sentence = assembleText(corpus, 50, n);
-    console.log(sentence);
+    var textBox = document.getElementById("text-box");
+    console.log(textBox);
+    textBox.innerHTML = sentence;
+  });
+
+  var button = document.getElementById('step');
+  console.log(button);
+  button.addEventListener('click', function (e) {
+    e.preventDefault();
+    var corpus = document.getElementById('form')[0].value;
+    console.log(corpus);
   });
 });
 

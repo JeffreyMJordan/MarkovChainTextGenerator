@@ -46,15 +46,23 @@ const assembleText = (corpus, words=50, n=1) => {
 
 window.addEventListener('DOMContentLoaded', () => {
   let form = document.getElementById('form');
-  
   form.addEventListener('submit', (e)  => {
     e.preventDefault();
-    
     let corpus = e.target[0].value;
     let n = parseInt(e.target[1].value);
     console.log(n);
     let sentence = assembleText(corpus, 50, n);
-    console.log(sentence);
+    let textBox = document.getElementById("text-box");
+    console.log(textBox);
+    textBox.innerHTML = sentence;
+  });
+
+  let button = document.getElementById('step');
+  console.log(button);
+  button.addEventListener('click', (e)=>{
+    e.preventDefault();
+    let corpus = document.getElementById('form')[0].value;
+    console.log(corpus);
   });
 });
 
