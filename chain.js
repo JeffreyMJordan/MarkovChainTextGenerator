@@ -83,6 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let chain = undefined;
   let gram = undefined;
   let nextWord = undefined;
+  let prevN = undefined;
   let form = document.getElementById('form');
   
   form.addEventListener('submit', (e)  => {
@@ -102,7 +103,8 @@ window.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let corpus = document.getElementById('form')[0].value;
     let n = parseInt(document.getElementById('form')[1].value);
-    if(chain===undefined){
+    if(n!=prevN){
+      prevN = n;
       chain = makeChain(corpus, n);
     }
     
