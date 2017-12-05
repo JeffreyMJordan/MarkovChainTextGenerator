@@ -30,11 +30,14 @@ const assembleText = (corpus, words=50, n=1) => {
   let keys = Object.keys(chain);
   let key = keys[ keys.length * Math.random() << 0];
   for(var i = 0; i<words; i++){
-    sentence += ` ${key}`;
+    sentence += ` ${key.split(" ")[n-1]}`;
     let arr = chain[key];
     
     if (arr){
-      key = arr[Math.floor(Math.random() * arr.length)];
+      console.log(key);
+      key = key.split(" ").slice(1).join(" ");
+      console.log(key);
+      key += ` ${arr[Math.floor(Math.random() * arr.length)]}`;
     }else{
       key = keys[Math.floor(Math.random() * keys.length)];
     } 
