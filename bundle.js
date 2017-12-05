@@ -104,13 +104,12 @@ var assembleText = function assembleText(corpus) {
   var keys = Object.keys(chain);
   var key = keys[keys.length * Math.random() << 0];
   for (var i = 0; i < words; i++) {
+    console.log(key.split(" ")[n - 1]);
     sentence += " " + key.split(" ")[n - 1];
     var arr = chain[key];
 
     if (arr) {
-      console.log(key);
       key = key.split(" ").slice(1).join(" ");
-      console.log(key);
       key += " " + arr[Math.floor(Math.random() * arr.length)];
     } else {
       key = keys[Math.floor(Math.random() * keys.length)];
@@ -123,10 +122,14 @@ var step = function step(chain, gram, nextWord) {
   var gramContainer = document.getElementById('gram');
   var keyMapContainer = document.getElementById('key-map');
   var textBox = document.getElementById('text-box');
-  textBox.innerHTML += " " + nextWord;
+
   if (gram === undefined) {
     var keys = Object.keys(chain);
     gram = keys[keys.length * Math.random() << 0];
+    console.log(gram);
+    textBox.innerHTML += gram;
+  } else {
+    textBox.innerHTML += " " + nextWord;
   }
   gramContainer.innerHTML = gram;
   var arr = chain[gram];

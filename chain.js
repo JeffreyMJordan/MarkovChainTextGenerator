@@ -30,13 +30,12 @@ const assembleText = (corpus, words=50, n=1) => {
   let keys = Object.keys(chain);
   let key = keys[ keys.length * Math.random() << 0];
   for(var i = 0; i<words; i++){
+    console.log(key.split(" ")[n-1]);
     sentence += ` ${key.split(" ")[n-1]}`;
     let arr = chain[key];
     
     if (arr){
-      console.log(key);
-      key = key.split(" ").slice(1).join(" ");
-      console.log(key);
+      key = key.split(" ").slice(1).join(" ");      
       key += ` ${arr[Math.floor(Math.random() * arr.length)]}`;
     }else{
       key = keys[Math.floor(Math.random() * keys.length)];
@@ -49,11 +48,14 @@ const step = (chain, gram, nextWord) => {
   let gramContainer = document.getElementById('gram');
   let keyMapContainer = document.getElementById('key-map');
   let textBox = document.getElementById('text-box');
-  textBox.innerHTML += ` ${nextWord}`;
+  
   if(gram===undefined){
     let keys = Object.keys(chain);
     gram = keys[ keys.length * Math.random() << 0];
-    
+    console.log(gram);
+    textBox.innerHTML += gram;
+  }else{
+    textBox.innerHTML += ` ${nextWord}`;
   }
   gramContainer.innerHTML = gram;
   let arr = chain[gram];
