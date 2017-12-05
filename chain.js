@@ -2,6 +2,7 @@ import {drawChain} from './drawing';
 
 const makeChain = (corpus, n=1) => {
   console.log(n);
+  corpus = corpus.replace(/\n/g, " ");
   let corpusArr = corpus.split(" ");
   console.log(corpusArr);
   let chain = {};

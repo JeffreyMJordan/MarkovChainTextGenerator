@@ -76,6 +76,7 @@ var makeChain = function makeChain(corpus) {
   var n = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
   console.log(n);
+  corpus = corpus.replace(/\n/g, " ");
   var corpusArr = corpus.split(" ");
   console.log(corpusArr);
   var chain = {};
