@@ -42,14 +42,15 @@ const assembleText = (corpus, words=50, n=1) => {
   return sentence; 
 };
 
-const step = (chain, gram) => {
+const step = (chain, gram, nextWord) => {
   let gramContainer = document.getElementById('gram');
   let keyMapContainer = document.getElementById('key-map');
-  console.log(gram);
+  let textBox = document.getElementById('text-box');
+  textBox.innerHTML += ` ${nextWord}`;
   if(gram===undefined){
     let keys = Object.keys(chain);
     gram = keys[ keys.length * Math.random() << 0];
-    console.log('here');
+    
   }
   gramContainer.innerHTML = gram;
   let arr = chain[gram];
@@ -58,13 +59,17 @@ const step = (chain, gram) => {
   let nextGram = gram;
   if (arr){
     nextGram = nextGram.split(" ").slice(1).join(" ");
-    nextGram += ` ${arr[Math.floor(Math.random() * arr.length)]}`;
+    nextWord = arr[Math.floor(Math.random() * arr.length)];
+    nextGram += ` ${nextWord}`;
   }else{
     let keys = Object.keys(chain);
     nextGram = keys[ keys.length * Math.random() << 0];
+    nextWord = nextGram;
   }
-  
-  return nextGram;
+  if(nextGram[0]===" "){
+    nextGram = nextGram.slice(1);
+  }
+  return [nextGram, nextWord];
 };
 
 
@@ -72,6 +77,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   let chain = undefined;
   let gram = undefined;
+  let nextWord = undefined;
   let form = document.getElementById('form');
   
   form.addEventListener('submit', (e)  => {
@@ -86,7 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   let button = document.getElementById('step');
-  console.log(button);
+  
   button.addEventListener('click', (e)=>{
     e.preventDefault();
     let corpus = document.getElementById('form')[0].value;
@@ -96,7 +102,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     
-    gram = step(chain, gram);
+    let res = step(chain, gram, nextWord);
+
+    gram = res[0];
+    nextWord = res[1];
     console.log(gram);
   });
 });
