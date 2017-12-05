@@ -119,19 +119,23 @@ var assembleText = function assembleText(corpus) {
 var step = function step(chain, gram) {
   var gramContainer = document.getElementById('gram');
   var keyMapContainer = document.getElementById('key-map');
+  console.log(gram);
   if (gram === undefined) {
     var keys = Object.keys(chain);
     gram = keys[keys.length * Math.random() << 0];
     console.log('here');
   }
   gramContainer.innerHTML = gram;
-  keyMapContainer.innerHTML = "[" + chain[gram] + "]";
+  var arr = chain[gram];
+  keyMapContainer.innerHTML = "[" + arr + "]";
+  var nextGram = arr[Math.floor(Math.random() * arr.length)];
+  return nextGram;
 };
 
 window.addEventListener('DOMContentLoaded', function () {
 
   var chain = undefined;
-
+  var gram = undefined;
   var form = document.getElementById('form');
 
   form.addEventListener('submit', function (e) {
@@ -154,10 +158,9 @@ window.addEventListener('DOMContentLoaded', function () {
     if (chain === undefined) {
       chain = makeChain(corpus, n);
     }
-    var gram = document.getElementById('gram').value;
-    console.log(document.getElementById('gram').innerText);
 
-    step(chain, gram);
+    gram = step(chain, gram);
+    console.log(gram);
   });
 });
 

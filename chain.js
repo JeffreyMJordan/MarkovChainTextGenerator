@@ -45,20 +45,24 @@ const assembleText = (corpus, words=50, n=1) => {
 const step = (chain, gram) => {
   let gramContainer = document.getElementById('gram');
   let keyMapContainer = document.getElementById('key-map');
+  console.log(gram);
   if(gram===undefined){
     let keys = Object.keys(chain);
     gram = keys[ keys.length * Math.random() << 0];
     console.log('here');
   }
   gramContainer.innerHTML = gram;
-  keyMapContainer.innerHTML = `[${chain[gram]}]`;
+  let arr = chain[gram];
+  keyMapContainer.innerHTML = `[${arr}]`;
+  let nextGram = arr[Math.floor(Math.random() * arr.length)];
+  return nextGram;
 };
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
   let chain = undefined;
-  
+  let gram = undefined;
   let form = document.getElementById('form');
   
   form.addEventListener('submit', (e)  => {
@@ -81,9 +85,9 @@ window.addEventListener('DOMContentLoaded', () => {
     if(chain===undefined){
       chain = makeChain(corpus, n);
     }
-    let gram = document.getElementById('gram').value;
-    console.log(document.getElementById('gram').innerText);
     
-    step(chain, gram);
+    
+    gram = step(chain, gram);
+    console.log(gram);
   });
 });
