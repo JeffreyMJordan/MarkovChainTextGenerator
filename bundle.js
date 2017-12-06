@@ -77,6 +77,12 @@ var makeChain = function makeChain(corpus) {
 
   corpus = corpus.replace(/\n/g, " ");
   var corpusArr = corpus.split(" ");
+  console.log(corpusArr);
+  if (corpusArr.length === 1) {
+    var obj = {};
+    obj[corpusArr[0]] = [];
+    return obj;
+  }
   var chain = {};
   for (var i = 0; i < corpusArr.length - n; i++) {
     var substr = corpusArr.slice(i, n + i).join(" ");
@@ -99,7 +105,7 @@ var assembleText = function assembleText(corpus) {
 
   console.log(words);
   var chain = makeChain(corpus, n);
-
+  console.log(chain);
   var sentence = "";
   var keys = Object.keys(chain);
   var key = keys[keys.length * Math.random() << 0];
@@ -171,7 +177,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var words = parseInt(e.target[2].value);
     var sentence = assembleText(corpus, words, n);
     var textBox = document.getElementById("text-box");
-
+    console.log(textBox);
     textBox.innerHTML = sentence;
   });
 

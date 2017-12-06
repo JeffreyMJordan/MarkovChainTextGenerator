@@ -3,6 +3,12 @@ import {drawChain} from './drawing';
 const makeChain = (corpus, n=1) => {
   corpus = corpus.replace(/\n/g, " ");
   let corpusArr = corpus.split(" ");
+  console.log(corpusArr);
+  if(corpusArr.length===1){
+    let obj = {};
+    obj[corpusArr[0]] = [];
+    return obj;
+  }
   let chain = {};
   for( var i = 0; i<corpusArr.length-n; i++){
     let substr = corpusArr.slice(i, n+i).join(" ");
@@ -25,7 +31,7 @@ const makeChain = (corpus, n=1) => {
 const assembleText = (corpus, words=10, n=1) => {
   console.log(words);
   let chain = makeChain(corpus, n);
-  
+  console.log(chain);
   let sentence = "";
   let keys = Object.keys(chain);
   let key = keys[ keys.length * Math.random() << 0];
@@ -96,7 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let words = parseInt(e.target[2].value);
     let sentence = assembleText(corpus, words, n);
     let textBox = document.getElementById("text-box");
-    
+    console.log(textBox);
     textBox.innerHTML = sentence;
   });
 
@@ -109,6 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if(n!=prevN){
       prevN = n;
       chain = makeChain(corpus, n);
+      
     }
     
     

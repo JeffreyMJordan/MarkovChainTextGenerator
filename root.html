@@ -1,44 +1,60 @@
 <head>
   <script src="bundle.js"></script>
+  <link rel="stylesheet" type="text/css" href="styling.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
 <div>
   <body id="root">
+    <div class="about">
+      <h1>Markov Chain Text Generator</h1>
+      <h2>About Markov Chains</h2>
+      <p"about-text">
+        Markov chains 
+      </p>
+    </div>
     <form action="" id="form">
-      <textarea cols="30" rows="10">
-      </textarea>
-      <div>
-      <p>Size of n-gram</p>
-      <select>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-      </div>
-      
-      <div>
-        <p>Number of words</p>
-        <input type="number"/>
-      </div>
+      <h1>Corpus</h1>
+      <textarea cols="30" rows="10"></textarea>
+      <div class="form-content">
+        <div class="num-words">
+          <p class="form-content-title">Size of n-gram</p>
+          <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        
+        <div class="num-words">
+          <p class="form-content-title">Number of words</p>
+          <input type="number" value="50"/>
+        </div>
 
-      <input type="submit" value="Generate Text"/>
-      <button id="step">
-        Step-by-step
-      </button>
+        <div>
+          <input type="submit" value="Generate Text"/>
+        </div>
+        <div>
+          <button id="step">
+            Step-by-step
+          </button>
+        </div>
+      </div> 
     </form>
+    <div class="generated-text-area">
+      <h1>Generated text</h1>
+      <div id="text-box">
 
-    <h1>Generated text</h1>
-    <div id="text-box">
+      </div>
+      <h2>Current Gram</h2>
+      <div id="gram">
 
-    </div>
-    <h2>Current Gram</h2>
-    <div id="gram">
+      </div>
 
-    </div>
+      <h2>Array</h2>
+      <div id="key-map">
 
-    <h2>Array</h2>
-    <div id="key-map">
-
+      </div>
     </div>
 
   </body>
