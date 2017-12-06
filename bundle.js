@@ -75,10 +75,8 @@ var _drawing = __webpack_require__(1);
 var makeChain = function makeChain(corpus) {
   var n = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
-  console.log(n);
   corpus = corpus.replace(/\n/g, " ");
   var corpusArr = corpus.split(" ");
-  console.log(corpusArr);
   var chain = {};
   for (var i = 0; i < corpusArr.length - n; i++) {
     var substr = corpusArr.slice(i, n + i).join(" ");
@@ -96,17 +94,23 @@ var makeChain = function makeChain(corpus) {
 };
 
 var assembleText = function assembleText(corpus) {
-  var words = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 50;
+  var words = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
   var n = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
 
+  console.log(words);
   var chain = makeChain(corpus, n);
 
   var sentence = "";
   var keys = Object.keys(chain);
   var key = keys[keys.length * Math.random() << 0];
-  for (var i = 0; i < words; i++) {
-    console.log(key.split(" ")[n - 1]);
+  console.log(words);
+  while (sentence.split(" ").filter(function (word) {
+    return word != "";
+  }).length < words) {
+    console.log(sentence.split(" "));
+    console.log(sentence);
     sentence += " " + key.split(" ")[n - 1];
+
     var arr = chain[key];
 
     if (arr) {
@@ -165,7 +169,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var corpus = e.target[0].value;
     var n = parseInt(e.target[1].value);
 
-    var sentence = assembleText(corpus, 50, n);
+    var sentence = assembleText(corpus, 10, n);
     var textBox = document.getElementById("text-box");
 
     textBox.innerHTML = sentence;
