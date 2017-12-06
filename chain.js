@@ -93,8 +93,8 @@ window.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let corpus = e.target[0].value;
     let n = parseInt(e.target[1].value);
-    
-    let sentence = assembleText(corpus, 10, n);
+    let words = parseInt(e.target[2].value);
+    let sentence = assembleText(corpus, words, n);
     let textBox = document.getElementById("text-box");
     
     textBox.innerHTML = sentence;

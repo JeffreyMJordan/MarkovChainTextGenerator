@@ -168,8 +168,8 @@ window.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
     var corpus = e.target[0].value;
     var n = parseInt(e.target[1].value);
-
-    var sentence = assembleText(corpus, 10, n);
+    var words = parseInt(e.target[2].value);
+    var sentence = assembleText(corpus, words, n);
     var textBox = document.getElementById("text-box");
 
     textBox.innerHTML = sentence;
