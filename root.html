@@ -39,9 +39,21 @@
             
           {John => [had], had => [many], many => [cats], cats => [and], and => [dogs, fishes], dogs => [and], fishes => []}
             
-          </div>
-
-        
+        </div>
+        <p></p>
+        We can use this hash to generate text as follows: 
+        <p></p>
+        <div class="image-container">
+          <ol>
+            <li>Pick a random key from the hash</li>
+            <li>Append this key to our sentence</li>
+            <li>Choose a random word from the array mapped to this key</li>
+            <li>Make this word our new key and return to step 2</li>
+          </ol>
+        </div>
+        <p></p> 
+        When making our Markov chain, we aren't limited to using single words as our keys. We can also create Markov chains using bigrams (ex. "John had" => [many]) 
+        or trigrams (ex. "John had many" => [cats]) 
       </div>
     </div>
     <form action="" id="form">
