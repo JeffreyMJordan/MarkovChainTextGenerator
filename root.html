@@ -9,9 +9,40 @@
     <div class="about">
       <h1>Markov Chain Text Generator</h1>
       <h2>About Markov Chains</h2>
-      <p"about-text">
-        Markov chains 
-      </p>
+      <div class="about-text">
+        <p></p>
+        Markov chains are mathematical systems consisting of a series of states, 
+        a set of transitions between each state, and a set of probabilities for each of these transitions occuring.
+        <p></p>
+        As an example, consider this simple markov chain modeling the weather:
+        <p></p>
+        <div class="image-container">
+            <img src="http://4.bp.blogspot.com/-u9XslQrACb8/VK71Cym3zQI/AAAAAAAAAA0/DAxkKTcCKvc/s1600/markovdiag.png" alt="markov chain image">
+        </div>
+        <p></p>
+        This markov chain has 3 states: rainy, cloudy, and sunny. For each state, there is some probability for it transitioning to a 
+        different state or remaining in its current state. When the weather is rainy, it tends to remain rainy. When it's sunny, it tends to remain sunny. And when 
+        it's cloudy, it doesn't stay that way for very long. 
+        <p></p>
+        Markov chains also be used to model languages based on a given corpus. To demonstrate how this is possible, consider the sample corpus: 
+        <p></p>
+        <div class="image-container">
+          <p></p>
+          "John had many cats and dogs and fishes"
+          <p></p>
+        </div>
+        <p></p>
+        We can model this corpus through the following process by mapping every word to an array containing all the words 
+        succeeding it. At the end of our process, we'll have the following hash:
+       <p></p>
+        <div class="hash-container">
+            
+          {John => [had], had => [many], many => [cats], cats => [and], and => [dogs, fishes], dogs => [and], fishes => []}
+            
+          </div>
+
+        
+      </div>
     </div>
     <form action="" id="form">
       <h1>Corpus</h1>

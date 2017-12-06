@@ -52,3 +52,32 @@ textarea{
 .about h2{
   margin: 0px;
 }
+
+.about-text{
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.about-text img{
+  
+  height: 200px;
+}
+
+.image-container{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.hash-container{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.hash-container p{
+  padding-left: 10px;
+  padding-right: 10px;
+}
