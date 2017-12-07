@@ -19,6 +19,8 @@ body{
 .master-header{
   position: relative;
   left: 35%;
+  width: 500px;
+  display: flex;
 }
 
 h1{
