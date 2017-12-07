@@ -68,8 +68,12 @@ const step = (chain, gram, nextWord) => {
   }
   gramContainer.innerHTML = gram;
   let arr = chain[gram];
+  if(arr===undefined){
+    keyMapContainer.innerHTML = "[]";
+  }else{
+    keyMapContainer.innerHTML = `[${arr.map((val) => "\"" + val + "\" ")}]`;
+  }
   
-  keyMapContainer.innerHTML = `[${arr.map((val) => "\"" + val + "\" ")}]`;
   let nextGram = gram;
   if (arr){
     nextGram = nextGram.split(" ").slice(1).join(" ");
@@ -83,6 +87,7 @@ const step = (chain, gram, nextWord) => {
   if(nextGram[0]===" "){
     nextGram = nextGram.slice(1);
   }
+  console.log(nextGram);
   return [nextGram, nextWord];
 };
 
