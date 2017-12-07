@@ -16,6 +16,11 @@ body{
   justify-content: center;
 }
 
+.master-header{
+  position: relative;
+  left: 35%;
+}
+
 h1{
   background: #DEE2EC;
   position: center;
@@ -88,7 +93,7 @@ textarea{
   display: flex; 
   align-items: center;
   justify-content: center;
-  background: #1AC8DB;
+  /* background: #1AC8DB; */
   width: 100%;
 }
 
@@ -113,4 +118,22 @@ textarea{
 
 .number{
   width: 50px;
+}
+
+#text-box{
+  padding: 5px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+}
+
+#gram{
+  padding: 5px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+}
+
+#key-map{
+  padding: 5px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
 }
