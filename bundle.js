@@ -145,7 +145,9 @@ var step = function step(chain, gram, nextWord) {
   gramContainer.innerHTML = gram;
   var arr = chain[gram];
 
-  keyMapContainer.innerHTML = "[" + arr + "]";
+  keyMapContainer.innerHTML = "[" + arr.map(function (val) {
+    return "\"" + val + "\" ";
+  }) + "]";
   var nextGram = gram;
   if (arr) {
     nextGram = nextGram.split(" ").slice(1).join(" ");

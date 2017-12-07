@@ -69,7 +69,7 @@ const step = (chain, gram, nextWord) => {
   gramContainer.innerHTML = gram;
   let arr = chain[gram];
   
-  keyMapContainer.innerHTML = `[${arr}]`;
+  keyMapContainer.innerHTML = `[${arr.map((val) => "\"" + val + "\" ")}]`;
   let nextGram = gram;
   if (arr){
     nextGram = nextGram.split(" ").slice(1).join(" ");

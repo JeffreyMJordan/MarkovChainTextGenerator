@@ -77,3 +77,9 @@ textarea{
   justify-content: center;
 }
 
+#key-map{
+  display: flex;
+  margin-bottom: 300px;
+  max-width: 100%;
+}
+
