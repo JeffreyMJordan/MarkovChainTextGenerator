@@ -1,5 +1,7 @@
 import {drawChain} from './drawing';
-
+import * as $ from "jquery";
+import shakesT from './hobbit';
+import hamlet from './hamlet';
 const makeChain = (corpus, n=1) => {
   corpus = corpus.replace(/\n/g, " ");
   let corpusArr = corpus.split(" ");
@@ -9,6 +11,7 @@ const makeChain = (corpus, n=1) => {
     obj[corpusArr[0]] = [];
     return obj;
   }
+  
   let chain = {};
   for( var i = 0; i<corpusArr.length-n; i++){
     let substr = corpusArr.slice(i, n+i).join(" ");
@@ -20,7 +23,6 @@ const makeChain = (corpus, n=1) => {
         chain[substr] = [next];
       }
     }
-      
   }
   console.log(chain);
   return chain;
@@ -102,6 +104,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
   form.addEventListener('submit', (e)  => {
     e.preventDefault();
+    
     let corpus = e.target[0].value;
     let n = parseInt(e.target[1].value);
     let words = parseInt(e.target[2].value);
@@ -128,6 +131,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
     gram = res[0];
     nextWord = res[1];
-    console.log(gram);
+  });
+
+  let shakes = document.getElementById('hobbit');
+  shakes.addEventListener('click', (e) => {
+    e.preventDefault();
+    let textBox = document.getElementById("text-area");
+    textBox.value = shakesT;  
+  });
+
+  let ham = document.getElementById('hamlet');
+  ham.addEventListener('click', (e) => {
+    e.preventDefault();
+    let textBox = document.getElementById("text-area");
+    textBox.value = hamlet;
+    
   });
 });

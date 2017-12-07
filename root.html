@@ -56,9 +56,17 @@
         or trigrams (ex. "John had many" => [cats]) 
       </div>
     </div>
+
+    <div class="pre-fill">
+        <h2>Sample corpuses</h2>
+        <div class="corpus-buttons">
+        <button id="hobbit">The Hobbit</button>
+        <button id="hamlet">Hamlet</button>
+      </div>
+    </div>
     <form action="" id="form">
-      <h1>Corpus</h1>
-      <textarea cols="30" rows="10"></textarea>
+      <h1>Corpus</h1>      
+      <textarea id="text-area" cols="30" rows="10"></textarea>
       <div class="form-content">
         <div class="num-words">
           <p class="form-content-title">Size of n-gram</p>
@@ -77,6 +85,7 @@
         <div>
           <input type="submit" value="Generate Text"/>
         </div>
+        
         <div>
           <button id="step">
             Step-by-step
