@@ -31,16 +31,23 @@ const makeChain = (corpus, n=1) => {
 
 
 const assembleText = (corpus, words=10, n=1) => {
+
   console.log(words);
   let chain = makeChain(corpus, n);
-  console.log(chain);
+  if(JSON.stringify(chain)==={}){
+    debugger;
+    return;
+  }
   let sentence = "";
   let keys = Object.keys(chain);
+  if (JSON.stringify(keys)==="[\"\"]"){
+    return;
+  }
   let key = keys[ keys.length * Math.random() << 0];
   console.log(words);
   while(sentence.split(" ").filter((word) => word!="").length<words){
-    console.log(sentence.split(" "));
-    console.log(sentence);
+    
+    console.log(chain);
     sentence += ` ${key.split(" ")[n-1]}`;
     
     let arr = chain[key];
