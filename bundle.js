@@ -112,7 +112,7 @@ var makeChain = function makeChain(corpus) {
       }
     }
   }
-  console.log(chain);
+  masterChain = chain;
   return chain;
 };
 
@@ -195,9 +195,10 @@ var step = function step(chain, gram, nextWord) {
   return [nextGram, nextWord];
 };
 
-window.addEventListener('DOMContentLoaded', function () {
+var masterChain = undefined;
 
-  var chain = undefined;
+window.addEventListener('DOMContentLoaded', function () {
+  var prevCorpus = undefined;
   var gram = undefined;
   var nextWord = undefined;
   var prevN = undefined;
@@ -221,12 +222,12 @@ window.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
     var corpus = document.getElementById('form')[0].value;
     var n = parseInt(document.getElementById('form')[1].value);
-    if (n != prevN) {
+    if (n != prevN || prevCorpus != corpus) {
       prevN = n;
-      chain = makeChain(corpus, n);
+      masterChain = makeChain(corpus, n);
     }
 
-    var res = step(chain, gram, nextWord);
+    var res = step(masterChain, gram, nextWord);
 
     gram = res[0];
     nextWord = res[1];

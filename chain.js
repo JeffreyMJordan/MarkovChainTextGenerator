@@ -24,7 +24,7 @@ const makeChain = (corpus, n=1) => {
       }
     }
   }
-  console.log(chain);
+  masterChain = chain;
   return chain;
 };
 
@@ -102,10 +102,10 @@ const step = (chain, gram, nextWord) => {
   return [nextGram, nextWord];
 };
 
+let masterChain = undefined;
 
 window.addEventListener('DOMContentLoaded', () => {
-
-  let chain = undefined;
+  let prevCorpus = undefined;
   let gram = undefined;
   let nextWord = undefined;
   let prevN = undefined;
@@ -129,13 +129,13 @@ window.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let corpus = document.getElementById('form')[0].value;
     let n = parseInt(document.getElementById('form')[1].value);
-    if(n!=prevN){
+    if(n!=prevN || prevCorpus != corpus){
       prevN = n;
-      chain = makeChain(corpus, n);
+      masterChain = makeChain(corpus, n);
     }
     
     
-    let res = step(chain, gram, nextWord);
+    let res = step(masterChain, gram, nextWord);
 
     gram = res[0];
     nextWord = res[1];
