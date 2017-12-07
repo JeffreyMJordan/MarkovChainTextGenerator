@@ -4,110 +4,117 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
-<div>
+<h1>Markov Chain Text Generator</h1>
+<div id="master">
+  
   <body id="root">
+
+    <div class="chain-maker">
+        <div class="pre-fill">
+            <h2>Sample corpuses</h2>
+            <div class="corpus-buttons">
+            <button id="hobbit">The Hobbit</button>
+            <button id="hamlet">Hamlet</button>
+          </div>
+        </div>
+        <form action="" id="form">
+          <h1>Corpus</h1>      
+          <textarea id="text-area" cols="30" rows="10"></textarea>
+          <div class="form-content">
+            <div class="num-words">
+              <label class="form-content-title">Size of n-gram
+              <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </label>
+            </div>
+            
+            <div class="num-words">
+              <label class="form-content-title">Number of words
+              <input class="number" type="number" value="50"/>
+              </label>
+            </div>
+    
+            <div>
+              <button type="submit">Generate Text</button>
+            </div>
+            
+            <div>
+              <button id="step">
+                Step-by-step
+              </button>
+            </div>
+          </div> 
+        </form>
+        <div class="generated-text-area">
+          <h1>Generated text</h1>
+          <div id="text-box">
+    
+          </div>
+          <h2>Current Gram</h2>
+          <div id="gram">
+    
+          </div>
+    
+          <h2>Array of succeeding words</h2>
+          <div id="key-map">
+    
+          </div>
+        </div>
+      
+    </div>
     <div class="about">
-      <h1>Markov Chain Text Generator</h1>
-      <h2>About Markov Chains</h2>
-      <div class="about-text">
-        <p></p>
-        Markov chains are mathematical systems consisting of a series of states, 
-        a set of transitions between each state, and a set of probabilities for each of these transitions occuring.
-        <p></p>
-        As an example, consider this simple markov chain modeling the weather:
-        <p></p>
-        <div class="image-container">
-            <img src="http://4.bp.blogspot.com/-u9XslQrACb8/VK71Cym3zQI/AAAAAAAAAA0/DAxkKTcCKvc/s1600/markovdiag.png" alt="markov chain image">
-        </div>
-        <p></p>
-        This markov chain has 3 states: rainy, cloudy, and sunny. For each state, there is some probability for it transitioning to a 
-        different state or remaining in its current state. When the weather is rainy, it tends to remain rainy. When it's sunny, it tends to remain sunny. And when 
-        it's cloudy, it doesn't stay that way for very long. 
-        <p></p>
-        Markov chains also be used to model languages based on a given corpus. To demonstrate how this is possible, consider the sample corpus: 
-        <p></p>
-        <div class="image-container">
-          <p></p>
-          "John had many cats and dogs and fishes"
-          <p></p>
-        </div>
-        <p></p>
-        We can model this corpus through the following process by mapping every word to an array containing all the words 
-        succeeding it. At the end of our process, we'll have the following hash:
-       <p></p>
-        <div class="hash-container">
-            
-          {John => [had], had => [many], many => [cats], cats => [and], and => [dogs, fishes], dogs => [and], fishes => []}
-            
-        </div>
-        <p></p>
-        We can use this hash to generate text as follows: 
-        <p></p>
-        <div class="image-container">
-          <ol>
-            <li>Pick a random key from the hash</li>
-            <li>Append this key to our sentence</li>
-            <li>Choose a random word from the array mapped to this key</li>
-            <li>Make this word our new key and return to step 2</li>
-          </ol>
-        </div>
-        <p></p> 
-        When making our Markov chain, we aren't limited to using single words as our keys. We can also create Markov chains using bigrams (ex. "John had" => [many]) 
-        or trigrams (ex. "John had many" => [cats]) 
-      </div>
-    </div>
-
-    <div class="pre-fill">
-        <h2>Sample corpuses</h2>
-        <div class="corpus-buttons">
-        <button id="hobbit">The Hobbit</button>
-        <button id="hamlet">Hamlet</button>
-      </div>
-    </div>
-    <form action="" id="form">
-      <h1>Corpus</h1>      
-      <textarea id="text-area" cols="30" rows="10"></textarea>
-      <div class="form-content">
-        <div class="num-words">
-          <p class="form-content-title">Size of n-gram</p>
-          <select>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </div>
         
-        <div class="num-words">
-          <p class="form-content-title">Number of words</p>
-          <input type="number" value="50"/>
+        <h2>About Markov Chains</h2>
+        <div class="about-text">
+          <p></p>
+          Markov chains are mathematical systems consisting of a series of states, 
+          a set of transitions between each state, and a set of probabilities for each of these transitions occuring.
+          <p></p>
+          As an example, consider this simple markov chain modeling the weather:
+          <p></p>
+          <div class="image-container">
+              <img src="http://4.bp.blogspot.com/-u9XslQrACb8/VK71Cym3zQI/AAAAAAAAAA0/DAxkKTcCKvc/s1600/markovdiag.png" alt="markov chain image">
+          </div>
+          <p></p>
+          This markov chain has 3 states: rainy, cloudy, and sunny. For each state, there is some probability for it transitioning to a 
+          different state or remaining in its current state. When the weather is rainy, it tends to remain rainy. When it's sunny, it tends to remain sunny. And when 
+          it's cloudy, it doesn't stay that way for very long. 
+          <p></p>
+          Markov chains also be used to model languages based on a given corpus. To demonstrate how this is possible, consider the sample corpus: 
+          <p></p>
+          <div class="image-container">
+            <p></p>
+            "John had many cats and dogs and fishes"
+            <p></p>
+          </div>
+          <p></p>
+          We can model this corpus through the following process by mapping every word to an array containing all the words 
+          succeeding it. At the end of our process, we'll have the following hash:
+         <p></p>
+          <div class="hash-container">
+              
+            {John => [had], had => [many], many => [cats], cats => [and], and => [dogs, fishes], dogs => [and], fishes => []}
+              
+          </div>
+          <p></p>
+          We can use this hash to generate text as follows: 
+          <p></p>
+          <div class="image-container">
+            <ol>
+              <li>Pick a random key from the hash</li>
+              <li>Append this key to our sentence</li>
+              <li>Choose a random word from the array mapped to this key</li>
+              <li>Make this word our new key and return to step 2</li>
+            </ol>
+          </div>
+          <p></p> 
+          When making our Markov chain, we aren't limited to using single words as our keys. We can also create Markov chains using bigrams (ex. "John had" => [many]) 
+          or trigrams (ex. "John had many" => [cats]) 
         </div>
-
-        <div>
-          <input type="submit" value="Generate Text"/>
-        </div>
-        
-        <div>
-          <button id="step">
-            Step-by-step
-          </button>
-        </div>
-      </div> 
-    </form>
-    <div class="generated-text-area">
-      <h1>Generated text</h1>
-      <div id="text-box">
-
       </div>
-      <h2>Current Gram</h2>
-      <div id="gram">
-
-      </div>
-
-      <h2>Array of succeeding words</h2>
-      <div id="key-map">
-
-      </div>
-    </div>
 
   </body>
 </div>

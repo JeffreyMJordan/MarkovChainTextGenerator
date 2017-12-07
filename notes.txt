@@ -26,3 +26,10 @@ TA says that 'next button' will be cool
 What about someone who wants to put in War and Peace 
 D3 is a data vis library 
 Provides good presets for generating these kinds of visualizations 
+
+
+Jesse says to start with color scheme for UI 
+www.canva.com has color schemes 
+Pintrest also has good color schemes 
+Google 'text heavy website design'
+Make it so it can be done without having to scroll
