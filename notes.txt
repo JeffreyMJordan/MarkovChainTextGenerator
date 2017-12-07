@@ -33,3 +33,15 @@ www.canva.com has color schemes
 Pintrest also has good color schemes 
 Google 'text heavy website design'
 Make it so it can be done without having to scroll
+
+
+Make the font bigger in the corpus 
+Maybe make a modal (this gives the corpus more space)
+  They'll probably click it 
+  Have the initial algorithm first, 
+  then have the 'about markov chains' pop up in a modal 
+Change button background 
+Pick a simple sentence from the hobbit to make the modal more engaging 
+Change the fonts, make it more colorful and varied 
+Make the Main Logo look like a Logo
+Have a border for an image stuff 

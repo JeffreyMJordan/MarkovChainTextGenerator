@@ -2,9 +2,11 @@
   <script src="bundle.js"></script>
   <link rel="stylesheet" type="text/css" href="styling.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
 </head>
 
 <h1 class="master-header">Markov Chain Text Generator</h1>
+<h1 class="line"></h1>
 <div id="master">
   
   <body id="root">
@@ -13,8 +15,8 @@
         <div class="pre-fill">
             <h2>Sample corpuses</h2>
             <div class="corpus-buttons">
-            <button id="hobbit">The Hobbit</button>
-            <button id="hamlet">Hamlet</button>
+            <button id="hobbit"> <strong>The Hobbit</strong></button>
+            <button id="hamlet"><strong>Hamlet</strong></button>
           </div>
         </div>
         <form action="" id="form">
@@ -38,12 +40,12 @@
             </div>
     
             <div>
-              <button type="submit">Generate Text</button>
+              <button type="submit"><strong>Generate Text</strong></button>
             </div>
             
             <div>
               <button id="step">
-                Step-by-step
+                <strong>Step-by-step</strong>
               </button>
             </div>
           </div> 
@@ -70,20 +72,27 @@
         <h2>About Markov Chains</h2>
         <div class="about-text">
           <p></p>
+          <div class="about-div">
           Markov chains are mathematical systems consisting of a series of states, 
           a set of transitions between each state, and a set of probabilities for each of these transitions occuring.
+          
           <p></p>
+          
           As an example, consider this simple markov chain modeling the weather:
+          </div>
           <p></p>
-          <div class="image-container">
+          <div class="real-image-container">
               <img src="http://4.bp.blogspot.com/-u9XslQrACb8/VK71Cym3zQI/AAAAAAAAAA0/DAxkKTcCKvc/s1600/markovdiag.png" alt="markov chain image">
           </div>
           <p></p>
+          <div class="about-div">
           This markov chain has 3 states: rainy, cloudy, and sunny. For each state, there is some probability for it transitioning to a 
           different state or remaining in its current state. When the weather is rainy, it tends to remain rainy. When it's sunny, it tends to remain sunny. And when 
           it's cloudy, it doesn't stay that way for very long. 
           <p></p>
           Markov chains also be used to model languages based on a given corpus. To demonstrate how this is possible, consider the sample corpus: 
+          
+          </div>
           <p></p>
           <div class="image-container">
             <p></p>
@@ -91,8 +100,10 @@
             <p></p>
           </div>
           <p></p>
+          <div class="about-div">
           We can model this corpus through the following process by mapping every word to an array containing all the words 
           succeeding it. At the end of our process, we'll have the following hash:
+          </div>
          <p></p>
           <div class="hash-container">
               
@@ -100,7 +111,9 @@
               
           </div>
           <p></p>
+          <div class="about-div">
           We can use this hash to generate text as follows: 
+          </div>
           <p></p>
           <div class="image-container">
             <ol>
@@ -111,8 +124,10 @@
             </ol>
           </div>
           <p></p> 
+          <div class="about-div">
           When making our Markov chain, we aren't limited to using single words as our keys. We can also create Markov chains using bigrams (ex. "John had" => [many]) 
           or trigrams (ex. "John had many" => [cats]) 
+          </div>
         </div>
       </div>
 
