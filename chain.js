@@ -34,10 +34,6 @@ const assembleText = (corpus, words=10, n=1) => {
 
   console.log(words);
   let chain = makeChain(corpus, n);
-  if(JSON.stringify(chain)==={}){
-    debugger;
-    return;
-  }
   let sentence = "";
   let keys = Object.keys(chain);
   if (JSON.stringify(keys)==="[\"\"]"){
@@ -70,7 +66,7 @@ const step = (chain, gram, nextWord) => {
   if(gram===undefined){
     let keys = Object.keys(chain);
     gram = keys[ keys.length * Math.random() << 0];
-    console.log(gram);
+    
     textBox.innerHTML += gram;
   }else{
     textBox.innerHTML += ` ${nextWord}`;
@@ -84,19 +80,25 @@ const step = (chain, gram, nextWord) => {
   }
   
   let nextGram = gram;
-  if (arr){
+  
+  if (arr && arr.length>0){
     nextGram = nextGram.split(" ").slice(1).join(" ");
     nextWord = arr[Math.floor(Math.random() * arr.length)];
     nextGram += ` ${nextWord}`;
   }else{
+    
     let keys = Object.keys(chain);
-    nextGram = keys[ keys.length * Math.random() << 0];
+    console.log(keys);
+    let num = Math.floor(keys.length * Math.random());
+    console.log(num);
+    nextGram = keys[num];
+    console.log(nextGram);
     nextWord = nextGram;
   }
   if(nextGram[0]===" "){
     nextGram = nextGram.slice(1);
   }
-  console.log(nextGram);
+  
   return [nextGram, nextWord];
 };
 
@@ -130,7 +132,6 @@ window.addEventListener('DOMContentLoaded', () => {
     if(n!=prevN){
       prevN = n;
       chain = makeChain(corpus, n);
-      
     }
     
     

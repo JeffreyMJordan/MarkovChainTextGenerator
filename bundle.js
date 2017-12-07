@@ -123,10 +123,6 @@ var assembleText = function assembleText(corpus) {
 
   console.log(words);
   var chain = makeChain(corpus, n);
-  if (JSON.stringify(chain) === {}) {
-    debugger;
-    return;
-  }
   var sentence = "";
   var keys = Object.keys(chain);
   if (JSON.stringify(keys) === "[\"\"]") {
@@ -161,7 +157,7 @@ var step = function step(chain, gram, nextWord) {
   if (gram === undefined) {
     var keys = Object.keys(chain);
     gram = keys[keys.length * Math.random() << 0];
-    console.log(gram);
+
     textBox.innerHTML += gram;
   } else {
     textBox.innerHTML += ' ' + nextWord;
@@ -177,19 +173,25 @@ var step = function step(chain, gram, nextWord) {
   }
 
   var nextGram = gram;
-  if (arr) {
+
+  if (arr && arr.length > 0) {
     nextGram = nextGram.split(" ").slice(1).join(" ");
     nextWord = arr[Math.floor(Math.random() * arr.length)];
     nextGram += ' ' + nextWord;
   } else {
+
     var _keys = Object.keys(chain);
-    nextGram = _keys[_keys.length * Math.random() << 0];
+    console.log(_keys);
+    var num = Math.floor(_keys.length * Math.random());
+    console.log(num);
+    nextGram = _keys[num];
+    console.log(nextGram);
     nextWord = nextGram;
   }
   if (nextGram[0] === " ") {
     nextGram = nextGram.slice(1);
   }
-  console.log(nextGram);
+
   return [nextGram, nextWord];
 };
 
