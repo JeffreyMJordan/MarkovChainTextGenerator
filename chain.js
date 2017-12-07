@@ -119,6 +119,10 @@ window.addEventListener('DOMContentLoaded', () => {
     let words = parseInt(e.target[2].value);
     let sentence = assembleText(corpus, words, n);
     let textBox = document.getElementById("text-box");
+    
+    document.getElementById('gram').innerHTML = "";
+    document.getElementById('key-map').innerHTML = "";
+
     console.log(textBox);
     textBox.innerHTML = sentence;
   });
