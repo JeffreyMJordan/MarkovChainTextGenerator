@@ -24,7 +24,7 @@
           <textarea id="text-area" cols="30" rows="10"></textarea>
           <div class="form-content">
             <div class="num-words">
-              <label class="form-content-title">Size of n-gram
+              <label class="form-content-title"># of words in gram
               <select>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -34,7 +34,7 @@
             </div>
             
             <div class="num-words">
-              <label class="form-content-title">Number of words
+              <label class="form-content-title">Words to generate
               <input class="number" type="number" value="50"/>
               </label>
             </div>
@@ -100,7 +100,8 @@
                   <li>Make this word our new key and return to step 2</li>
                 </ol>
           </div>
-  
+          <p></p>
+          Note that we are not limited to using single words as keys. This generator can also use bigrams (two words) and trigrams (three words) as keys.
         </div>
       </div>
 
