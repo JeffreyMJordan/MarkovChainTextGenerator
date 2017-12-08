@@ -6043,4 +6043,5 @@ you, that all your adventures and escapes were managed by mere luck, just for yo
 are a very fine person, Mr. Baggins, and I am very fond of you; but you are only quite a little fellow in
 a wide world after all!”
 “Thank goodness!” said Bilbo laughing, and handed him the tobacco-jar.`;
+
 export default shakes;

@@ -68,7 +68,36 @@
       
     </div>
     <div class="about">
-        
+      <div class="about-chain">
+        <h2>How this text generator works</h2>
+        <div class="about-chain-text">
+          This text generator works by creating a Markov chain from a given corpus. For each word in the provided corpus, this text generator
+          <div class="about-chain-inline">
+            <ol>
+              <li>Makes that word a key in a hash</li>
+              <li>Places each word that comes after it in the corpus into an array, then maps that array to the original word </li>
+            </ol>
+          </div>
+          <p></p>
+          Consider the sentence 'John had many cats and dogs and fishes'. After this program runs, it returns an object that looks as follows:
+          <div class="about-chain-inline">
+              {John => [had], had => [many], many => [cats], cats => [and], and => [dogs, fishes], dogs => [and], fishes => []}
+          </div>
+          <p></p>
+          Using this object, we can generate random text through the following algorithm 
+          <div class="about-chain-inline">
+              <ol>
+                  <li>Pick a random key from the hash</li>
+                  <li>Append this key to our sentence</li>
+                  <li>Choose a random word from the array mapped to this key</li>
+                  <li>Make this word our new key and return to step 2</li>
+                </ol>
+          </div>
+  
+        </div>
+      </div>
+
+      <div class="about-markov">
         <h2>About Markov Chains</h2>
         <div class="about-text">
           <p></p>
@@ -90,46 +119,16 @@
           different state or remaining in its current state. When the weather is rainy, it tends to remain rainy. When it's sunny, it tends to remain sunny. And when 
           it's cloudy, it doesn't stay that way for very long. 
           <p></p>
-          Markov chains also be used to model languages based on a given corpus. To demonstrate how this is possible, consider the sample corpus: 
+          Markov chains offer more sophisticated modeling of events. If we were trying to model weather just based on the probability that 
+          a given day is rainy, cloudy, or sunny, we end up with rainy days evenly distributed in our output. This is innacurate to real-life
+          weather patterns - everyone knows that when it rains one day, it's likely to rain the next day as well. 
           
-          </div>
-          <p></p>
-          <div class="image-container">
-            <p></p>
-            "John had many cats and dogs and fishes"
-            <p></p>
-          </div>
-          <p></p>
-          <div class="about-div">
-          We can model this corpus through the following process by mapping every word to an array containing all the words 
-          succeeding it. At the end of our process, we'll have the following hash:
-          </div>
-         <p></p>
-          <div class="hash-container">
-              
-            {John => [had], had => [many], many => [cats], cats => [and], and => [dogs, fishes], dogs => [and], fishes => []}
-              
-          </div>
-          <p></p>
-          <div class="about-div">
-          We can use this hash to generate text as follows: 
-          </div>
-          <p></p>
-          <div class="image-container">
-            <ol>
-              <li>Pick a random key from the hash</li>
-              <li>Append this key to our sentence</li>
-              <li>Choose a random word from the array mapped to this key</li>
-              <li>Make this word our new key and return to step 2</li>
-            </ol>
-          </div>
-          <p></p> 
-          <div class="about-div">
-          When making our Markov chain, we aren't limited to using single words as our keys. We can also create Markov chains using bigrams (ex. "John had" => [many]) 
-          or trigrams (ex. "John had many" => [cats]) 
-          </div>
+         
         </div>
       </div>
+
+
+    </div>
 
   </body>
 </div>

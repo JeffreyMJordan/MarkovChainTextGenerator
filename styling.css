@@ -74,18 +74,41 @@ textarea{
 }
 
 .about{
-  padding-top: 30px;
+
   display: flex;
   flex-direction: column;
   width: 45%;
   align-items: center;
   overflow-y: scroll;
-  max-height: 200vh;
+  max-height: 300vh;
+  margin-right: 5px;
+}
+
+.about-chain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.about-chain-inline{
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+}
+
+.about-markov{
+  padding-bottom: 15px;
+  padding-top: 10px;
   background: rgb(177, 109, 50);
   border: 1px solid black;
   box-shadow: 1px 1px 1px black;
-  padding-bottom: 10px;
-  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .about h2{
@@ -112,7 +135,7 @@ textarea{
 }
 
 .about-div{
-  background: rgb(177, 109, 50);
+  background: rgb(212, 106, 19);
   border: 1px solid black;
   box-shadow: 1px 1px 1px black;
   padding: 5px;
@@ -127,7 +150,7 @@ textarea{
   display: flex; 
   align-items: center;
   justify-content: center;
-  background: rgb(31, 119, 180);
+  background: rgb(22, 159, 168);
   font-size: 20px;
   width: 100%;
   border: 1px solid black;
@@ -152,7 +175,7 @@ img{
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  background: rgb(31, 119, 180);
+  background: rgb(22, 159, 168);
   box-shadow: 1px 1px 1px black;
   padding: 8px;
   font-size: 20px;
