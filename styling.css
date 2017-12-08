@@ -19,10 +19,10 @@ body{
 
 .master-header{
   position: relative;
-  left: 30%;
+  left: 35%;
   width: 600px;
   display: flex;
-  font-family: 'Spectral SC', serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .line{
@@ -90,6 +90,7 @@ textarea{
   align-items: center;
   flex-direction: column;
   margin-bottom: 20px;
+  padding: 5px;
 }
 
 .about-chain-inline{
@@ -112,7 +113,8 @@ textarea{
 }
 
 .about h2{
-  font-family: 'Spectral SC', serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
 }
 
 .chain-maker{
@@ -124,12 +126,13 @@ textarea{
 }
 
 .about h2{
-  margin: 0px;
+  margin-top: 20px;
 }
 
 .about-text{
   width: 90%;
   display: flex;
+  margin-top: 0px;
   justify-content: flex-start;
   flex-direction: column;
 }
@@ -235,14 +238,14 @@ button:hover{
 }
 
 .chain-maker h1{
-  font-family: 'Spectral SC', serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 95%;
   background: rgb(172, 181, 204);
   text-align: center;
 }
 
 .chain-maker h2{
-  font-family: 'Spectral SC', serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: rgb(172, 181, 204);
   width: 95%;
   text-align: center;
