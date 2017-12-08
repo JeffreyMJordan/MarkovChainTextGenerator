@@ -117,6 +117,11 @@ textarea{
   
 }
 
+.sublist{
+  margin-top: 3px;
+  font-size: 15px;
+}
+
 .chain-maker{
   width: 53%;
   border: 1px solid black;

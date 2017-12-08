@@ -71,12 +71,19 @@
       <div class="about-chain">
         <h2>How this text generator works</h2>
         <div class="about-chain-text">
-          This text generator works by creating a Markov chain from a given corpus. For each word in the provided corpus, this text generator
+          This text generator works by creating a Markov chain from a given corpus. This generator uses the following algorithm:
           <div class="about-chain-inline">
             <ol>
-              <li>Makes that word a key in a hash</li>
-              <li>Places each word that comes after it in the corpus into an array, then maps that array to the original word </li>
+              <li>Create an empty hash</li>
+              <li>For each word in the provided corpus: 
+                  <ol class="sublist">
+                      <li>Make that word a key in the hash</li>
+                      <li>Place each word that comes after it in the corpus into an array, then map that array to the original word </li>
+                  </ol>
+              </li>
+                
             </ol>
+            
           </div>
           <p></p>
           Consider the sentence 'John had many cats and dogs and fishes'. After this program runs, it returns an object that looks as follows:
