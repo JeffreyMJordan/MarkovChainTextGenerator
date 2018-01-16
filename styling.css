@@ -1,9 +1,7 @@
 #form{
   display: flex;
   flex-direction: column;
-  
-  align-items: center;
-  
+  align-items: center;  
 }
 
 body{
@@ -15,7 +13,6 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .master-header{
